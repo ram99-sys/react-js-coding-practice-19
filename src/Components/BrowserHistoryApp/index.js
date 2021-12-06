@@ -2,12 +2,15 @@ import {Component} from 'react'
 
 import './index.css'
 
-import '../../App'
-
 import BrowserHistoryItem from '../BrowserHistoryItem'
 
 class BrowserHistoryApp extends Component {
-  state = {searchInput: ''}
+  state = {searchInput: '', newList: []}
+
+  componentDidMount() {
+    const {historyList} = this.props
+    this.setState({newList: historyList})
+  }
 
   onChangeSearchInput = event => {
     this.setState({searchInput: event.target.value})
@@ -15,11 +18,15 @@ class BrowserHistoryApp extends Component {
 
   deleteHistoryTab = id => {
     console.log(id)
+    const {newList} = this.state
+    console.log(newList)
+    const newHistoryList = newList.filter(eachTab => eachTab.id !== id)
+    this.setState({newList: newHistoryList})
   }
 
   findingListCount = filteredResults => {
     if (filteredResults.length === 0) {
-      return <h1>There is no history to show</h1>
+      return <p>There is no history to show</p>
     }
     return (
       <ul className="browser-history-items-container">
@@ -35,9 +42,8 @@ class BrowserHistoryApp extends Component {
   }
 
   render() {
-    const {searchInput} = this.state
-    const {initialHistoryList} = this.props
-    const filteredResults = initialHistoryList.filter(eachItem =>
+    const {searchInput, newList} = this.state
+    const filteredResults = newList.filter(eachItem =>
       eachItem.title.toLowerCase().includes(searchInput.toLowerCase()),
     )
     const historyClassName =

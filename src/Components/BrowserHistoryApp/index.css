@@ -67,3 +67,39 @@
   height: 100vh;
   width: 80vw;
 }
+
+@media screen and (min-width: 768px) and (max-width: 992px) {
+  .app-container {
+    width: 100vw;
+  }
+  .body-container {
+    width: 100vw;
+  }
+  .browser-history-items-container {
+    padding: 20px;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .app-container {
+    width: 100vw;
+  }
+  .body-container {
+    width: 100vw;
+  }
+  .input-element {
+    width: 200px;
+  }
+}
+
+@media screen and (min-width: 992px) and (max-width: 1200px) {
+  .app-container {
+    width: 80vw;
+  }
+  .body-container {
+    width: 80vw;
+  }
+  .browser-history-items-container {
+    padding: 20px;
+  }
+}

@@ -6,6 +6,7 @@ const BrowserHistoryItem = props => {
   const onClickDeleteButton = () => {
     deleteHistoryTab(id)
   }
+
   return (
     <li className="list-item">
       <div className="list-element">
@@ -19,11 +20,17 @@ const BrowserHistoryItem = props => {
         </div>
       </div>
       <div>
-        <img
-          src="https://assets.ccbp.in/frontend/react-js/delete-img.png"
-          alt="testId"
+        <button
+          className="button"
+          type="button"
+          testid="delete"
           onClick={onClickDeleteButton}
-        />
+        >
+          <img
+            src="https://assets.ccbp.in/frontend/react-js/delete-img.png"
+            alt="delete"
+          />
+        </button>
       </div>
     </li>
   )

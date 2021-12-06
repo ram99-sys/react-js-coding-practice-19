@@ -1,7 +1,6 @@
-import './App.css'
-
 import BrowserHistoryApp from './Components/BrowserHistoryApp'
 
+import './App.css'
 // These are the list used in the application. You can move them to any component needed.
 const initialHistoryList = [
   {
@@ -79,6 +78,6 @@ const initialHistoryList = [
 ]
 
 // Replace your code here
-const App = () => <BrowserHistoryApp initialHistoryList={initialHistoryList} />
+const App = () => <BrowserHistoryApp historyList={initialHistoryList} />
 
 export default App
